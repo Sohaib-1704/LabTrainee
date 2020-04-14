@@ -10,4 +10,12 @@ public interface TraineeServiceInterface {
 
 	public List<Trainee> reterive();
 
+	public boolean existsById(int id);
+
+	public void updateData(Trainee trainee);
+
+	public Trainee findById(int id);
+
+	public void deleteById(int id);
+
 }

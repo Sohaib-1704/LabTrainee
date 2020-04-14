@@ -27,4 +27,30 @@ public class TraineeRepo implements TraineeRepoInterface{
 		TypedQuery<Trainee> query = entitymanager.createQuery(Qstr, Trainee.class);
 		return query.getResultList();
 	}
+	@Override
+	public Trainee findById(int id) {
+		return entitymanager.find(Trainee.class, id);
+	}
+	public boolean findID(int id){
+		if(entitymanager.contains(entitymanager.find(Trainee.class, id))){
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public void delete(int id) {
+		Trainee train=entitymanager.find(Trainee.class, id);
+		System.out.println(train.getId() +" "+train.getName()+ " "+train.getDomain()+" "+train.getLocation()+" is removed");
+		entitymanager.remove(train);
+	}
+	@Override
+	public void update(Trainee train) {
+		  Trainee traineeUpdate= entitymanager.find(Trainee.class, train.getId());		
+	      traineeUpdate.setName(train.getName());
+	      traineeUpdate.setDomain(train.getDomain());
+	      traineeUpdate.setLocation(train.getLocation());
+	      System.out.println("update ");
+		
+	}
+
 }

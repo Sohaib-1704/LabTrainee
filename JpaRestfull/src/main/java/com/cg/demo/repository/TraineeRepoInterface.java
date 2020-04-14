@@ -10,4 +10,12 @@ public interface TraineeRepoInterface {
 
 	public List<Trainee> reterive();
 
+	public Trainee findById(int id);
+
+	public boolean findID(int id);
+
+	public void delete(int id);
+
+	public void update(Trainee train);
+
 }

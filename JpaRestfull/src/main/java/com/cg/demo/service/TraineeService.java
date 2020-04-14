@@ -26,5 +26,23 @@ public class TraineeService implements TraineeServiceInterface {
 	public List<Trainee> reterive() {
 		return traineeRepo.reterive();
 	}
+	@Override
+	public Trainee findById(int id) {
+		return traineeRepo.findById(id);
+	}
+	@Override
+	public boolean existsById(int id) {
+		return traineeRepo.findID(id);
+	}
 
+	@Override
+	public void deleteById(int id) {
+		traineeRepo.delete(id);
+	}
+
+	@Override
+	public void updateData(Trainee train) {
+		traineeRepo.update(train);
+		
+	}
 }
